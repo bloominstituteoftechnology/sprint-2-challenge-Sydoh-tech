@@ -6,8 +6,30 @@
   <script id="challenge">
     // 👉 CHALLENGE 1
     function profileActivation(profile, reason) {
-
+let profileTest = {
+  active: true,
+  reason: undefined,
+}
+ if (profile.active) {
+    if (reason) {
+      profile.active = false;
+      profile.reason = reason;
+      return profile;
     }
+else {
+  return "confirm status manually"
+  }
+}
+  else {
+    // If inactive, set it to active and remove the reason property
+    profile.active = true;
+    delete profile.reason;
+    return profile;
+  }
+    }
+  
+
+    
 
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
