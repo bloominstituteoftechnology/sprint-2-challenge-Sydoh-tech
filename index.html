@@ -75,16 +75,37 @@ else {
         }
         return object;
       }
-            
-      const booleanizedObject = booleanize(inputObject);
-      console.log(booleanizedObject);
-      
-  
-
+    
     // 👉 CHALLENGE 4
-    function scrub(text, forbidden) {
+    function scrub(text, forbidden){
+      if(!text || forbidden.length ==0){
+        return text;
+    }
+    const otherText = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+
+    const newText = otherText.split(' ');
+
+    const scrambbledText = newText.map(word => {
+      if (forbidden.includes(word.toLowerCase()))
+      {
+return 'x'.repeat(word.length);
+      }
+      return word;
+    })
+    .join(' ');
+
+    return scrambbledText
 
     }
+      
+   /*   // Example usage:
+      const originalText = "This is a sample text with forbidden words like apple and banana.";
+      const forbiddenWords = ["apple", "banana"];
+      
+      const scrubbedText = scrub(originalText, forbiddenWords);
+      console.log(scrubbedText);
+        
+    } */
 
     // 👉 CHALLENGE 5 (bonus, NOT graded)
     function normalizePhoneNumber(num) {
