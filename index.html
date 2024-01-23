@@ -6,19 +6,20 @@
   <script id="challenge">
     // 👉 CHALLENGE 1
     function profileActivation(profile, reason) {
-let profileTest = {
+  let userDetails = {
+  userName : "string",
   active: true,
   reason: undefined,
 }
  if (profile.active) {
     if (reason) {
-      profile.active = false;
-      profile.reason = reason;
-      return profile;
-    }
+    profile.active = false;
+    profile.reason = reason;
+    return profile;
+}
 else {
   return "confirm status manually"
-  }
+}
 }
   else {
     // If inactive, set it to active and remove the reason property
@@ -26,19 +27,35 @@ else {
     delete profile.reason;
     return profile;
   }
-    }
-  
-
-    
-
+}
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
+  if (x < 1 || x > 3 || y < 1 || y > 3) {
+    return "invalid coordinates";
+  }
+ // Define the minefield grid
+  const minefield = [["🟦", "🟦", "🟥"],["🟥", "🟦", "🟥"],["🟥", "🟦", "🟦"],
+  ];
+  //let result = [grid,1,1];
+ // console.log(result);
 
-    }
+  // Get the value at the specified coordinates
+  const value = minefield[y - 1][x - 1];
+
+  // Determine the result based on the value
+  if (value === "🟥") {
+    return "🟥 💀"; // Hit a mine
+  } else if (value === "🟦") {
+    return "🟦 🥳"; // Landed on a safe spot
+  }
+}
+
+
+
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
-
+      
     }
 
     // 👉 CHALLENGE 4
