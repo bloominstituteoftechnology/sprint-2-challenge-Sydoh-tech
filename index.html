@@ -51,12 +51,35 @@ else {
 }
 
 
-
-
     // 👉 CHALLENGE 3
-    function booleanize(obj) {
+    function booleanize(object){
+      if (typeof object !== 'object' || object === null){
+        throw new Error('value must be a object');
+      }
+      for (const key in object){
+        if(object.hasOwnProperty(key)){
+
+        if (key.length > 9){
+          return "shorten all prop names to 9 chars or less";
+        }
+        if (object[key]===0){
+          object[key]= false
+        }
+        else if (object[key]===1){
+          object[key]= true;
+        }
+        else if (object[key]===null){
+          delete object[key];
+        }
+        }
+        }
+        return object;
+      }
+            
+      const booleanizedObject = booleanize(inputObject);
+      console.log(booleanizedObject);
       
-    }
+  
 
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
