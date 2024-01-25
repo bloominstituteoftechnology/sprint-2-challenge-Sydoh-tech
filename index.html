@@ -33,21 +33,16 @@ else {
   if (x < 1 || x > 3 || y < 1 || y > 3) {
     return "invalid coordinates";
   }
- // Define the minefield grid
-  const minefield = [["🟦", "🟦", "🟥"],["🟥", "🟦", "🟥"],["🟥", "🟦", "🟦"],
-  ];
-  //let result = [grid,1,1];
- // console.log(result);
 
-  // Get the value at the specified coordinates
-  const value = minefield[y - 1][x - 1];
+  const value = grid[y - 1][x - 1];
 
-  // Determine the result based on the value
+ 
   if (value === "🟥") {
-    return "🟥 💀"; // Hit a mine
+    return "🟥 💀"; 
   } else if (value === "🟦") {
-    return "🟦 🥳"; // Landed on a safe spot
+    return "🟦 🥳";
   }
+  
 }
 
 
@@ -97,25 +92,34 @@ return 'x'.repeat(word.length);
     return scrambbledText
 
     }
-      
-   /*   // Example usage:
-      const originalText = "This is a sample text with forbidden words like apple and banana.";
-      const forbiddenWords = ["apple", "banana"];
-      
-      const scrubbedText = scrub(originalText, forbiddenWords);
-      console.log(scrubbedText);
-        
-    } */
-
+   
     // 👉 CHALLENGE 5 (bonus, NOT graded)
     function normalizePhoneNumber(num) {
-
-    }
+      num = String(num);
+  
+      //To format the phone number
+      var formattedNumber = `(${num.slice(0, 3)}) ${num.slice(3, 6)}-${num.slice(6)}`;
+      
+      return formattedNumber;
+  }
 
     // 👉 CHALLENGE 6 (bonus, NOT graded)
     function diceRolls() {
-
-    }
+      let antSixCount= 0;
+      let allRolls = 0;
+  
+      while (anySixCount < 3) {  
+        const currentRoll = Math.floor(Math.random() * 6) + 1;
+        if (currentRoll === 6) {
+              antSixCount++;
+          } else {
+              anySixCount = 0;
+          }
+          allRolls++;
+      }
+  
+      return allRolls;
+  }
 
     // 🧪 DO NOT make any changes below this line ===================
     globalThis.challengeVersion = 1
